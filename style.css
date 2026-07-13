@@ -15,7 +15,7 @@ body {
     align-items: center;
     overflow-x: hidden;
     transition: background-color 0.8s ease;
-    padding: 20px 10px; /* Adăugat spațiu sus/jos pentru ecrane mici */
+    padding: 20px 15px;
 }
 
 /* Fundalul general devine rozul plicului când scrisoarea este deschisă */
@@ -159,14 +159,14 @@ body.invitation-open {
     pointer-events: none;
 }
 
-/* --- Containerul Invitației (Optimizat complet pentru a nu mai tăia textul) --- */
+/* --- Containerul Invitației --- */
 .invitation-container {
     width: 100%;
-    max-width: 420px;
+    max-width: 400px;
     background: #ffffff; 
-    padding: 50px 24px 35px 24px; /* Mărit padding-ul de sus de la 30px la 50px pentru siguranță */
+    padding: 35px 22px;
     border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(138, 94, 88, 0.3); 
+    box-shadow: 0 20px 50px rgba(138, 94, 88, 0.35); 
     text-align: center;
     border: 1px solid rgba(242, 231, 229, 0.7);
     display: flex;
@@ -174,7 +174,10 @@ body.invitation-open {
     align-items: center;
     transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
     z-index: 20;
-    margin: auto;
+    
+    /* SOLUȚIA DE MECANICĂ NOUĂ: Forțăm o coborâre masivă de la marginea de sus a ecranului */
+    margin-top: 80px !important; 
+    margin-bottom: 40px !important;
 }
 
 /* Clasa pentru starea ascunsă inițial */
@@ -183,6 +186,7 @@ body.invitation-open {
     transform: translateY(40px);
     pointer-events: none;
     position: absolute;
+    margin-top: 0 !important;
 }
 
 /* --- Stilul Caligrafic Global --- */
@@ -195,8 +199,9 @@ body.invitation-open {
 /* --- Header & Nume --- */
 .hero {
     width: 100%;
-    margin-bottom: 20px;
-    padding-top: 10px; /* Spațiu suplimentar în interiorul zonei cu nume */
+    margin-bottom: 25px;
+    display: block;
+    overflow: visible;
 }
 
 .hero p.subtitle {
@@ -205,7 +210,7 @@ body.invitation-open {
     text-transform: uppercase;
     letter-spacing: 3px;
     color: #b58d87;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .hero h1 {
@@ -215,14 +220,13 @@ body.invitation-open {
     line-height: 1.2;
     display: block;
     width: 100%;
-    overflow: visible;
 }
 
 .hero .ampersand {
-    font-size: 32px;
+    font-size: 34px;
     color: #b58d87;
     line-height: 1;
-    margin: 5px 0;
+    margin: 8px 0;
 }
 
 /* --- Corp Text --- */
@@ -239,7 +243,7 @@ body.invitation-open {
 .date-box {
     border-top: 1px solid #f2e7e5;
     border-bottom: 1px solid #f2e7e5;
-    padding: 12px 0;
+    padding: 15px 0;
     margin: 25px 0;
 }
 
@@ -318,7 +322,7 @@ body.invitation-open {
     cursor: pointer;
     transition: all 0.3s ease;
     outline: none;
-    -webkit-tap-highlight-color: transparent; /* Elimină fundalul albastru la atingere pe iPhone */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .audio-btn:hover, .audio-btn:active {
