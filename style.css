@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #faf4eb; /* Fundal exterior cald/crem pentru plic */
+    background-color: #faf4eb; 
     font-family: 'Montserrat', sans-serif;
     color: #4a4a4a;
     min-height: 100vh;
@@ -15,9 +15,10 @@ body {
     align-items: center;
     overflow-x: hidden;
     transition: background-color 0.8s ease;
+    padding: 10px;
 }
 
-/* Forțăm fundalul paginii să devină rozul plicului când invitația este deschisă */
+/* Fundalul general devine rozul plicului când scrisoarea este deschisă */
 body.invitation-open {
     background-color: #f3d1cc; 
 }
@@ -76,7 +77,7 @@ body.invitation-open {
     z-index: 3;
 }
 
-/* Foaia albă din interior care se ridică la deschidere */
+/* Foaia albă din interior */
 .letter-preview {
     position: absolute;
     bottom: 12px;
@@ -158,23 +159,25 @@ body.invitation-open {
     pointer-events: none;
 }
 
-/* --- Containerul Invitației --- */
+/* --- Containerul Invitației (Rezolvat problema ascunderii textului de sus) --- */
 .invitation-container {
-    width: 92%;
+    width: 95%;
     max-width: 440px;
     background: #ffffff; 
-    padding: 35px 20px;
+    padding: 30px 20px;
     border-radius: 16px;
     box-shadow: 0 20px 50px rgba(138, 94, 88, 0.3); 
     text-align: center;
     border: 1px solid rgba(242, 231, 229, 0.7);
-    position: absolute;
-    opacity: 1;
-    transform: translateY(0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
     z-index: 20;
 }
 
+/* Clasa pentru starea ascunsă inițial */
 .invitation-container.id-hidden {
     opacity: 0;
     transform: translateY(40px);
@@ -182,44 +185,53 @@ body.invitation-open {
     position: absolute;
 }
 
-/* --- Stilul Caligrafic Uniformizat --- */
+/* --- Stilul Caligrafic Global --- */
 .caligraphic-text, 
 .caligraphic-text h1, 
 .caligraphic-text p {
     font-family: 'Great Vibes', 'Vladimir Script', cursive !important;
-    white-space: normal; /* Permite textului să se așeze pe rândul următor */
 }
 
-/* --- Detalii Text Specifice --- */
+/* --- Header & Nume (Corectat decuparea pe mobil) --- */
+.hero {
+    width: 100%;
+    margin-bottom: 15px;
+    display: block;
+}
+
 .hero p.subtitle {
     font-family: 'Montserrat', sans-serif !important; 
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 3px;
     color: #b58d87;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 
-/* Rezolvare problemă decupare nume pe mobil */
 .hero h1 {
     font-weight: 400;
-    font-size: 32px; /* Redus fin dimensiunea maximă pentru mobil */
+    font-size: 34px; 
     color: #333;
     line-height: 1.2;
-    word-wrap: break-word; /* Evită tăierea literelor */
     display: block;
     width: 100%;
+    overflow: visible; /* Împiedică tăierea fontului caligrafic */
 }
 
 .hero .ampersand {
-    font-size: 38px;
+    font-size: 32px;
     color: #b58d87;
-    margin: 0;
     line-height: 1;
+    margin: 2px 0;
+}
+
+/* --- Corp Text --- */
+.details {
+    width: 100%;
 }
 
 .details .message p {
-    font-size: 23px !important; /* Ajustat ușor pe mobil */
+    font-size: 24px !important; 
     line-height: 1.4;
     color: #4e3b39;
 }
@@ -228,7 +240,7 @@ body.invitation-open {
     border-top: 1px solid #f2e7e5;
     border-bottom: 1px solid #f2e7e5;
     padding: 12px 0;
-    margin-bottom: 25px;
+    margin: 20px 0;
 }
 
 .date-box .day-name {
@@ -243,6 +255,7 @@ body.invitation-open {
     font-size: 36px;
     margin: 0;
     color: #2c2c2c;
+    line-height: 1.1;
 }
 
 .date-box .month-year {
@@ -287,7 +300,7 @@ body.invitation-open {
     margin-top: 4px;
 }
 
-/* --- Zona buton muzică --- */
+/* --- Zona Buton Muzică --- */
 .audio-control-wrapper {
     margin-top: 25px;
 }
@@ -296,7 +309,7 @@ body.invitation-open {
     background-color: #fcf8f5;
     border: 1px solid #e9c5c0;
     color: #b58d87;
-    padding: 8px 16px;
+    padding: 8px 18px;
     border-radius: 20px;
     font-family: 'Montserrat', sans-serif;
     font-size: 11px;
@@ -304,10 +317,10 @@ body.invitation-open {
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    outline: none;
 }
 
-.audio-btn:hover {
+.audio-btn:hover, .audio-btn:active {
     background-color: #f3d1cc;
     color: white;
 }
