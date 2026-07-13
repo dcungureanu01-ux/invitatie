@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const invitationContainer = document.getElementById('invitationContainer');
     const audioControlBtn = document.getElementById('audioControlBtn');
 
-    let isPlaying = false;
-
     // 1. Încărcăm sunetul de răsfoit pagina din folderul local
     const pageFlipSound = new Audio('deschidere.mp3');
     pageFlipSound.volume = 0.7;
@@ -13,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Încărcăm melodia ambientală din folderul local
     const backgroundMusic = new Audio('fundal.mp3');
     backgroundMusic.loop = true;
-    backgroundMusic.volume = 0.15; // Volum redus considerabil pentru a fi foarte fin și ambiental
+    backgroundMusic.volume = 0.02; // Volum extrem de mic și egalizat fin în dB cu cel de deschidere
 
     // Control deschidere plic
     waxSeal.addEventListener('click', () => {
@@ -24,11 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // După exact 1 secundă (1000 ms), pornim melodia de fundal pe loop
         setTimeout(() => {
-            backgroundMusic.play()
-                .then(() => {
-                    isPlaying = true;
-                })
-                .catch(e => console.log("Eroare audio fundal:", e));
+            backgroundMusic.play().catch(e => console.log("Eroare audio fundal:", e));
         }, 1000);
         
         // Transformăm fundalul în rozul plicului și afișăm scrisoarea albă
@@ -44,16 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1100); 
     });
 
-    // Logica pentru butonul de Pauză / Play
+    // Logica sigură pentru butonul de Pauză / Play (verifică direct starea nativă a playerului)
     audioControlBtn.addEventListener('click', () => {
-        if (isPlaying) {
+        if (!backgroundMusic.paused) {
             backgroundMusic.pause();
             audioControlBtn.innerText = "▶️ Pornește Muzica";
-            isPlaying = false;
         } else {
             backgroundMusic.play().catch(e => console.log("Eroare reactivare audio:", e));
             audioControlBtn.innerText = "⏸️ Oprește Muzica";
-            isPlaying = true;
         }
     });
 
