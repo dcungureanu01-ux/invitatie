@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitație Cununie Civilă - Sabina & Dan</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonturi elegante -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Containerul pentru Plic -->
+    <div class="envelope-wrapper" id="envelopeWrapper">
+        <div class="envelope">
+            <div class="flap"></div>
+            <div class="pocket"></div>
+            <!-- Foaia albă care devine vizibilă când se deschide plicul -->
+            <div class="letter-preview">
+                <span class="preview-text">Sabina & Dan</span>
+            </div>
+            <!-- Sigiliul care acționează ca buton -->
+            <div class="wax-seal" id="waxSeal">
+                <span>S&D</span>
+            </div>
+        </div>
+        <p class="tap-hint">Apasă pe sigiliu pentru a deschide invitația</p>
+    </div>
+
+    <!-- Ecranul cu Invitația (Scrisoarea albă așezată pe spatele roz al plicului) -->
+    <div class="invitation-container id-hidden" id="invitationContainer">
+        <!-- Numele de sus sunt acum în font caligrafic -->
+        <header class="hero caligraphic-text">
+            <p class="subtitle">Salvați Data</p>
+            <h1>Sabina Elena</h1>
+            <div class="ampersand">&</div>
+            <h1>Dan Cristian</h1>
+        </header>
+
+        <section class="details">
+            <div class="message caligraphic-text">
+                <p>Dupa multe iesiri, vacante, momente frumoase, mici compromisuri si nenumarate raspunsuri la intrebarea „Ce mancam azi?”, ne-am dat seama ca a venit momentul sa facem cel mai frumos pas din povestea noastra.</p>
+                <br>
+                <p>Asa ca am decis sa spunem „DA” si sa pornim impreuna intr-o noua aventura.</p>
+                <br>
+                <p>Ne-ar bucura enorm sa ne fii alaturi in aceasta zi speciala, sa traiesti emotiile alaturi de noi si apoi sa sarbatorim impreuna inceputul unui nou capitol.</p>
+                <br>
+                <p>Te asteptam cu drag sa ciocnim un pahar de sampanie, sa dansam, sa radem si sa cream amintiri pe care sa le pastram o viata inteaga!</p>
+            </div>
+            
+            <div class="date-box">
+                <p class="day-name">Vineri</p>
+                <p class="day-number caligraphic-text">23</p>
+                <p class="month-year">Let's Celebrate • Octombrie 2026</p>
+            </div>
+
+            <!-- Zona de Countdown -->
+            <div class="countdown-wrapper">
+                <h3>Au mai rămas:</h3>
+                <div id="countdown" class="countdown">
+                    <div class="time-block"><span id="days">00</span><label>Zile</label></div>
+                    <div class="time-block"><span id="hours">00</span><label>Ore</label></div>
+                    <div class="time-block"><span id="minutes">00</span><label>Minute</label></div>
+                    <div class="time-block"><span id="seconds">00</span><label>Secunde</label></div>
+                </div>
+            </div>
+
+            <!-- Notă pentru viitor -->
+            <div class="placeholder-info">
+                <p><i>În curând vom reveni cu detaliile legate de locație și oră.</i></p>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
