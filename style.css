@@ -19,7 +19,7 @@ body {
 
 /* Forțăm fundalul paginii să devină rozul plicului când invitația este deschisă */
 body.invitation-open {
-    background-color: #f3d1cc; /* Rozul plicului pe fundal total */
+    background-color: #f3d1cc; 
 }
 
 /* --- Containerul Plicului cu Animație de Plutire --- */
@@ -158,14 +158,14 @@ body.invitation-open {
     pointer-events: none;
 }
 
-/* --- Containerul Invitației (Scrisoarea albă așezată peste roz) --- */
+/* --- Containerul Invitației --- */
 .invitation-container {
     width: 92%;
     max-width: 440px;
-    background: #ffffff; /* Foaia albă curată */
-    padding: 45px 25px;
+    background: #ffffff; 
+    padding: 35px 20px;
     border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(138, 94, 88, 0.3); /* Umbră pronunțată pe fundalul roz */
+    box-shadow: 0 20px 50px rgba(138, 94, 88, 0.3); 
     text-align: center;
     border: 1px solid rgba(242, 231, 229, 0.7);
     position: absolute;
@@ -182,47 +182,53 @@ body.invitation-open {
     position: absolute;
 }
 
-/* --- Stilul Caligrafic Uniformizat global --- */
+/* --- Stilul Caligrafic Uniformizat --- */
 .caligraphic-text, 
 .caligraphic-text h1, 
 .caligraphic-text p {
     font-family: 'Great Vibes', 'Vladimir Script', cursive !important;
+    white-space: normal; /* Permite textului să se așeze pe rândul următor */
 }
 
 /* --- Detalii Text Specifice --- */
 .hero p.subtitle {
-    font-family: 'Montserrat', sans-serif !important; /* Păstrăm subtitlul mic și modern pentru contrast */
+    font-family: 'Montserrat', sans-serif !important; 
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 3px;
     color: #b58d87;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
+/* Rezolvare problemă decupare nume pe mobil */
 .hero h1 {
     font-weight: 400;
-    font-size: 38px; /* Mărit puțin fiindcă fontul cursiv e mai subțire */
+    font-size: 32px; /* Redus fin dimensiunea maximă pentru mobil */
     color: #333;
-    line-height: 1.1;
+    line-height: 1.2;
+    word-wrap: break-word; /* Evită tăierea literelor */
+    display: block;
+    width: 100%;
 }
 
 .hero .ampersand {
-    font-size: 45px;
+    font-size: 38px;
     color: #b58d87;
-    margin: -5px 0;
+    margin: 0;
+    line-height: 1;
 }
 
 .details .message p {
-    font-size: 25px !important;
-    line-height: 1.45;
+    font-size: 23px !important; /* Ajustat ușor pe mobil */
+    line-height: 1.4;
     color: #4e3b39;
 }
 
 .date-box {
     border-top: 1px solid #f2e7e5;
     border-bottom: 1px solid #f2e7e5;
-    padding: 15px 0;
-    margin-bottom: 30px;
+    padding: 12px 0;
+    margin-bottom: 25px;
 }
 
 .date-box .day-name {
@@ -234,14 +240,14 @@ body.invitation-open {
 }
 
 .date-box .day-number {
-    font-size: 40px;
-    margin: -5px 0;
+    font-size: 36px;
+    margin: 0;
     color: #2c2c2c;
 }
 
 .date-box .month-year {
     font-family: 'Montserrat', sans-serif !important;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #666;
@@ -253,7 +259,7 @@ body.invitation-open {
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #b58d87;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .countdown {
@@ -270,7 +276,7 @@ body.invitation-open {
 }
 
 .time-block span {
-    font-size: 26px;
+    font-size: 24px;
     color: #2c2c2c;
 }
 
@@ -281,9 +287,34 @@ body.invitation-open {
     margin-top: 4px;
 }
 
+/* --- Zona buton muzică --- */
+.audio-control-wrapper {
+    margin-top: 25px;
+}
+
+.audio-btn {
+    background-color: #fcf8f5;
+    border: 1px solid #e9c5c0;
+    color: #b58d87;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+.audio-btn:hover {
+    background-color: #f3d1cc;
+    color: white;
+}
+
 .placeholder-info {
-    margin-top: 35px;
-    font-size: 12px;
+    margin-top: 25px;
+    font-size: 11px;
     color: #a69a98;
 }
 
